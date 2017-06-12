@@ -19,7 +19,8 @@ public class BinarySearchNode<T> {
 		+", data=" + data
 		+ ", parent=" + Res.code(parent)
 		+ ", left=" + Res.code(left)
-		+ ", right=" + Res.code(right);
+		+ ", right=" + Res.code(right)
+		+ ", viTri = "+ viTri;
 	}
 
 	//public Integer data;
@@ -28,6 +29,7 @@ public class BinarySearchNode<T> {
 	public BinarySearchNode left;
 	public BinarySearchNode right;
 	public BinarySearchNode parent;
+	public int viTri;
 	public List<String> piece = new LinkedList<String>();
 	//public List<String> part = new LinkedList<String>();
 	

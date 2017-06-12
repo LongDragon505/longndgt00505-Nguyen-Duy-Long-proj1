@@ -86,9 +86,9 @@ public class FuntionProductJson {
 		
 		//String s = "PRDHTthNsf";
 		String s = Nhap1Tu();
-		boolean r = bst5.search(s);
-		
-		System.out.println("Tim "+s+ " : " + r);
+//		boolean r = bst5.search(s);		
+//		System.out.println("Tim "+s+ " : " + r);
+		System.out.println(bst5.search(s));
 		
 		long end2 = Calendar.getInstance().getTimeInMillis();
 		System.out.println("Executed Time 2: " + (end2 - begin2) + " milliseconds");
@@ -190,5 +190,26 @@ public String Nhap1Tu() {
 		bst5.InThongTin(true);
 		
 	}
+	
+	public void SapXepProduct(BinarySearchTree<Product> bst5) {
+			
+			long begin7 = Calendar.getInstance().getTimeInMillis();
+	
+			bst5.flatten();
+			
+			//bst5.dump(true);
+			bst5.InThongTin(true);
+			
+			long end7 = Calendar.getInstance().getTimeInMillis();
+			System.out.println("Executed Time 7: " + (end7 - begin7) + " milliseconds");
+			
+	//		bst5.fold(50);
+	//		bst5.dump(true);
+			
+			//``````````````````````````````````````
+			
+			
+		}
+	
 	
 }

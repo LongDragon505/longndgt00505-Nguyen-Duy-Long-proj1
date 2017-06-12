@@ -23,13 +23,19 @@ public class test_ModuleCustomer {
 		FuntionCustomerJson funtionCustomerJson = new FuntionCustomerJson();
 		
 		funtionCustomerJson.ketNoiBST();
-		funtionCustomerJson.NhapVaoDuLieuCustomer(funtionCustomerJson.bst5);
+//		funtionCustomerJson.NhapVaoDuLieuCustomer(funtionCustomerJson.bst5);
 		funtionCustomerJson.docCustomer(funtionCustomerJson.bst5);
-		funtionCustomerJson.themCustomer(funtionCustomerJson.bst5);
-		funtionCustomerJson.timKiemCustomer(funtionCustomerJson.bst5);
-		funtionCustomerJson.deleteCustomer(funtionCustomerJson.bst5);
+//		funtionCustomerJson.themCustomer(funtionCustomerJson.bst5);
+//		funtionCustomerJson.timKiemCustomer(funtionCustomerJson.bst5);
+//		funtionCustomerJson.deleteCustomer(funtionCustomerJson.bst5);
+//		funtionCustomerJson.SapXepCustomer(funtionCustomerJson.bst5);
+		//funtionCustomerJson.SapXepCustomer();
+		//funtionCustomerJson.docCustomer(funtionCustomerJson.bst5);
+		funtionCustomerJson.layVitri(funtionCustomerJson.bst5);
+		
 		
 		//BST auto sort when adding
+		
 		
 	}
 	

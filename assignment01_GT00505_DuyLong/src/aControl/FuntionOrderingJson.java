@@ -120,9 +120,9 @@ public class FuntionOrderingJson {
 		long begin2 = Calendar.getInstance().getTimeInMillis();
 		
 		String s = "PRDdHGHA2A";
-		boolean r = bst5.search(s);
-		
-		System.out.println("Tim "+s+ " : " + r);
+//		boolean r = bst5.search(s);	
+//		System.out.println("Tim "+s+ " : " + r);
+		System.out.println(bst5.search(s));
 		
 		long end2 = Calendar.getInstance().getTimeInMillis();
 		System.out.println("Executed Time: " + (end2 - begin2) + " milliseconds");
@@ -167,5 +167,24 @@ public void NhapVaoDuLieuOrdering(BinarySearchTree<Ordering> bst5) throws Illega
 		bst5.InThongTin(true);
 		
 	}
+
+	
+	public void SapXepOrdering(BinarySearchTree<Ordering> bst5) {
+		
+		long begin7 = Calendar.getInstance().getTimeInMillis();
+	
+		bst5.flatten();
+		
+		//bst5.dump(true);
+		bst5.InThongTin(true);
+		
+		long end7 = Calendar.getInstance().getTimeInMillis();
+		System.out.println("Executed Time 1: " + (end7 - begin7) + " milliseconds");
+		
+		//``````````````````````````````````````
+		
+		
+	}
+
 	
 }

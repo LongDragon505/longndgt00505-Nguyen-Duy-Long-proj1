@@ -4,7 +4,7 @@ public class MenuConsole {
 
 	String tenCongTy = "\n Sale Management System  (SMS) \n";
 	
-	String[] menuProduct = {"\n Product list:\n"
+	String[] menuProduct = {"\n 1. Product list:\n"
 			,"11. Load data from file"
 			,"12. Input & add new item"
 			,"13. Display data"
@@ -15,7 +15,7 @@ public class MenuConsole {
 			,"18. Delete the node after the node having code = xCode"
 	};
 	
-	String[] menuCustomer = {"\n Customer list:\n"
+	String[] menuCustomer = {"\n 2. Customer list:\n"
 			,"21. Load data from file"
 			,"22. Input & add new item"
 			,"23. Display data"
@@ -23,7 +23,7 @@ public class MenuConsole {
 			,"25. Search by ccode"
 			,"26. Delete by ccode"};
 	
-	String[] menuOder = {"\n Order list:\n"
+	String[] menuOder = {"\n 3. Order list:\n"
 			,"31. Input data"
 			,"32. Display data with total value"
 			,"33. Sort  by pcode and ccode"
@@ -65,6 +65,10 @@ public class MenuConsole {
 		for(int i = 0; i < menuOder.length; i++){
 			System.out.println("\t"+menuOder[i]);
 		}
+	}
+	
+	public void NhapVaoMenu() {
+		System.out.println("\n Please choice and input the number: ");
 	}
 	
 	

@@ -33,13 +33,13 @@ public class to_test_add_and_search {
 			
 		bst.dump(true);
 		
-		boolean r1 = bst.search("ABC");
+//		boolean r1 = bst.search("ABC");
 		
-		System.out.println("Tim 1: " + r1);
+		System.out.println("Tim 1: " + bst.search("ABC") /*r1*/);
 		
-		boolean r2 = bst.search("ABD");
+		//boolean r2 = bst.search("ABD");
 		
-		System.out.println("Tim 2: " + r2);
+		System.out.println("Tim 2: " + bst.search("ABD") /*r2*/);
 		
 		bst.remove("DBC");
 		

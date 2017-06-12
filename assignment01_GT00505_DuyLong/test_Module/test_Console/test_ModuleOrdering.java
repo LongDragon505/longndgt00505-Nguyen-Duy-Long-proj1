@@ -20,7 +20,8 @@ public class test_ModuleOrdering {
 		
 		funtionOrderingJson.ketNoiBST();
 		funtionOrderingJson.docOrdering(funtionOrderingJson.bst5);
-		funtionOrderingJson.NhapVaoDuLieuOrdering(funtionOrderingJson.bst5);
+//		funtionOrderingJson.NhapVaoDuLieuOrdering(funtionOrderingJson.bst5);
+		funtionOrderingJson.SapXepOrdering(funtionOrderingJson.bst5);
 		
 		//BST auto sort when adding
 		

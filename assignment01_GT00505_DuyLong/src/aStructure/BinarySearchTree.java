@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
+
+
 public class BinarySearchTree<T> 
 {
 	public BinarySearchNode<T> root = null;
@@ -14,7 +16,8 @@ public class BinarySearchTree<T>
 	public Class<?> lopThamSo;
 	public Field[] fields;
 	public Field f,f2;
-	private int demTam = 0;
+	//private int demTam = 0;
+	//public int demCon = 0;
 
 
 	public BinarySearchTree() 	{		}
@@ -103,20 +106,21 @@ public class BinarySearchTree<T>
 		//System.out.println("a: "+a);
 
 		n.piece.add(0, a);
-		
 
-		
-		if(root == null) root = n;
+		if(root == null){
+			root = n;
+			root.viTri = 0;
+		}
 		else add(n, root);
 	}
 
 	private void add(BinarySearchNode<T> n, BinarySearchNode<T> p) throws IllegalArgumentException, IllegalAccessException 
 	{
-
+		
 		//if(n.data < p.data)
 		if(n.piece.get(0).compareTo(p.piece.get(0)) < 0)
 		{
-			if(p.left == null) { p.left = n; n.parent = p; }
+			if(p.left == null) { p.left = n; n.parent = p; n.viTri = root.viTri + 1; root.viTri++; }
 			else add(n, p.left);
 		}
 		
@@ -125,7 +129,7 @@ public class BinarySearchTree<T>
 		if(n.piece.get(0).compareTo(p.piece.get(0)) > 0)
 		{
 			if(p.right == null)
-			{ p.right = n; n.parent = p; }
+			{ p.right = n; n.parent = p; n.viTri = root.viTri + 1; root.viTri++; }
 			else add(n, p.right);
 		}	
 
@@ -227,10 +231,13 @@ public class BinarySearchTree<T>
 
 	}
 
-	public boolean search(String x) 
+//	public boolean search(String x) 
+	public BinarySearchNode search(String x) 
 	{
-		if(root==null) return false;
-		return search(x, root) != null;
+//		if(root==null) return false;
+//		return search(x, root) != null;
+		if(root==null) return null;
+		return search(x, root);
 	}
 
 	private BinarySearchNode search(String x, BinarySearchNode n) 
@@ -252,6 +259,11 @@ public class BinarySearchTree<T>
 
 	private void remove(BinarySearchNode n, BinarySearchNode p) 
 	{
+		
+		if(n == null){
+			return ;
+		}
+		
 		//if n has only one child c, and p.left==n,then p.left = c
 		//if n has only one child c, and p.right==n,then p.right = c
 		if(n.left == null || n.right == null) 
@@ -284,8 +296,114 @@ public class BinarySearchTree<T>
 	{
 		if(root == null) return;
 		BinarySearchNode p = search(x, root);
-		if(p != null) remove(p.left, p);
+//		if(p != null) remove(p.left, p);
+		if(p != null) remove(p.right, p);
 	}	
+	
+	public BinarySearchNode get(int i) {	
+		
+		return searchV(i);
+	}
+	
+	public BinarySearchNode searchV(int x) 
+	{
+		if(root==null) return null;
+		return searchV(x, root);
+	}
+
+	private BinarySearchNode searchV(int x, BinarySearchNode n) 
+	{
+		if(x==n.viTri) return n;
+		if(x<n.viTri && n.left != null) return searchV(x, n.left);
+		else if(x>n.viTri && n.right != null) return searchV(x, n.right);
+		else return null;
+	}
+	
+	public int size() {
+		int dai = root.viTri+1;
+		return dai;
+		
+	}
+	
+	public void flatten() 
+	{
+		BinarySearchNode x1 = root;
+		
+		while(x1 != null) 
+		{
+			x1 = rotateLeft(x1);
+			x1 = x1.right;
+		}
+
+		return;
+	}
+
+	private BinarySearchNode rotateLeft(BinarySearchNode x1) 
+	{
+		while(x1.left != null) 
+		{
+			BinarySearchNode x2 = x1.left;
+			BinarySearchNode r2 = x2.right;
+			
+			x1.left = r2;
+			if(r2 != null) r2.parent = x1;
+			
+			x2.right = x1;
+			
+			if(x1.parent == null) root = x2;
+			else if(x1.parent.left==x1) x1.parent.left = x2;
+			else if(x1.parent.right==x1) x1.parent.right = x2;
+			
+			x2.parent = x1.parent; 
+			x1.parent = x2;
+			
+			x1 = x2;
+		}
+		
+		return x1;
+	}
+	
+	public void fold(Object c) {
+		while(true) {
+			BinarySearchNode x1 = root;
+			if(x1.right == null) break;
+			while(x1 != null) {
+				x1 = fold(x1);
+				if(root.data == c) break;
+			}
+			if(root.data == c) break;
+		}
+		return;
+	}
+
+	private BinarySearchNode fold(BinarySearchNode x1) 
+	{
+		if(x1==null || x1.right == null) return null;
+		//System.out.println("folding " + x1);
+		
+		BinarySearchNode x2 = x1.right;
+		BinarySearchNode l2 = x2.left;
+		
+		x1.right = l2;
+		if(l2 != null) l2.parent = x1;
+		
+		x2.left = x1;
+		
+		if(x1.parent == null) root = x2;
+		else if(x1.parent.left==x1) x1.parent.left = x2;
+		else if(x1.parent.right==x1) x1.parent.right = x2;
+		
+		x2.parent = x1.parent; 
+		x1.parent = x2;
+		
+		x1 = x2.right;
+		if(x1 != null) x1 = x1.right;
+		
+		//this.dump(true);
+		
+		return x2.right;
+	}
+	
 	
 	public void InThongTin(boolean dash) 
 	{
