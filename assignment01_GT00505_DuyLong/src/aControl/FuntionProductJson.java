@@ -13,6 +13,8 @@ import org.codehaus.jackson.type.TypeReference;
 
 import aClass.Customer;
 import aClass.Product;
+import aExpand.BstMethodExpand01;
+import aStructure.BinarySearchNode;
 import aStructure.BinarySearchTree;
 import eOther.DocFile;
 import eOther.doiTuongCanMap;
@@ -20,6 +22,7 @@ import eOther.doiTuongCanMap;
 public class FuntionProductJson {
 
 	public BinarySearchTree<Product> bst5;
+	public BstMethodExpand01 bstMethodExpand01;
 	
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IOException {
 		// TODO Auto-generated method stub
@@ -88,7 +91,15 @@ public class FuntionProductJson {
 		String s = Nhap1Tu();
 //		boolean r = bst5.search(s);		
 //		System.out.println("Tim "+s+ " : " + r);
-		System.out.println(bst5.search(s));
+		//System.out.println(bst5.search(s).data);
+		//bstMethodExpand01.InSearchExpand(bst5, s);
+		
+		BinarySearchNode<Product> n = bst5.search(s);
+		if(n != null){
+			System.out.println(bst5.search(s).data);
+		}else{
+			System.out.println(" Not Found ");
+		}
 		
 		long end2 = Calendar.getInstance().getTimeInMillis();
 		System.out.println("Executed Time 2: " + (end2 - begin2) + " milliseconds");
@@ -147,11 +158,11 @@ public class FuntionProductJson {
 		
 	}
 	
-public String Nhap1Tu() {
+	public String Nhap1Tu() {
 		
 		Scanner scanner = new Scanner(System.in);
 		String a = "";
-		System.out.println("Nhap vao chuoi: ");
+		System.out.println("Input the String: ");
 		a = scanner.nextLine();
 		
 		return a;

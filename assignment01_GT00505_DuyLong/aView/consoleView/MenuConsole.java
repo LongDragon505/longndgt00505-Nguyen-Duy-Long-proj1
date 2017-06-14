@@ -29,6 +29,8 @@ public class MenuConsole {
 			,"33. Sort  by pcode and ccode"
 	};
 	
+	String[] luaChon1 = {"\n 50. Display all menu","99. Exit \n"};
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -64,6 +66,12 @@ public class MenuConsole {
 		
 		for(int i = 0; i < menuOder.length; i++){
 			System.out.println("\t"+menuOder[i]);
+		}
+	}
+	
+	public void lua_chon_1() {
+		for(int i = 0; i < luaChon1.length; i++){
+			System.out.print("\t"+luaChon1[i]);
 		}
 	}
 	

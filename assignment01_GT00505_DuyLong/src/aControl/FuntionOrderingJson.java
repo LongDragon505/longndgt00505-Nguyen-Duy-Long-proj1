@@ -13,6 +13,7 @@ import org.codehaus.jackson.type.TypeReference;
 import aClass.Customer;
 import aClass.Ordering;
 import aClass.Product;
+import aStructure.BinarySearchNode;
 import aStructure.BinarySearchTree;
 import eOther.DocFile;
 import eOther.doiTuongCanMap;
@@ -119,10 +120,17 @@ public class FuntionOrderingJson {
 	public void timKiemOrdering(BinarySearchTree<Ordering> bst5) {
 		long begin2 = Calendar.getInstance().getTimeInMillis();
 		
-		String s = "PRDdHGHA2A";
+		//String s = "PRDdHGHA2A";
+		String s = Nhap1Tu();
 //		boolean r = bst5.search(s);	
 //		System.out.println("Tim "+s+ " : " + r);
-		System.out.println(bst5.search(s));
+		//System.out.println(bst5.search(s).data);
+		BinarySearchNode<Ordering> n = bst5.search(s);
+		if(n != null){
+			System.out.println(bst5.search(s).data);
+		}else{
+			System.out.println(" Not Found ");
+		}
 		
 		long end2 = Calendar.getInstance().getTimeInMillis();
 		System.out.println("Executed Time: " + (end2 - begin2) + " milliseconds");
@@ -143,7 +151,17 @@ public class FuntionOrderingJson {
 	
 	}
 	
-public void NhapVaoDuLieuOrdering(BinarySearchTree<Ordering> bst5) throws IllegalArgumentException, IllegalAccessException {
+	public String Nhap1Tu() {
+		
+		Scanner scanner = new Scanner(System.in);
+		String a = "";
+		System.out.println("Input the String: ");
+		a = scanner.nextLine();
+		
+		return a;
+	}
+	
+	public void NhapVaoDuLieuOrdering(BinarySearchTree<Ordering> bst5) throws IllegalArgumentException, IllegalAccessException {
 		
 		Scanner scanner = new Scanner(System.in);
 		String a,b = "";

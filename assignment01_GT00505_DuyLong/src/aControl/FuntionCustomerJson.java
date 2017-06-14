@@ -13,6 +13,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
 import aClass.Customer;
+import aStructure.BinarySearchNode;
 import aStructure.BinarySearchTree;
 import eOther.DocFile;
 import eOther.Res;
@@ -94,7 +95,14 @@ public class FuntionCustomerJson {
 		//boolean r = bst5.search(s);
 		
 //		System.out.println("Tim "+s+ " : " + r);
-		System.out.println(bst5.search(s));
+		BinarySearchNode<Customer> n = bst5.search(s);
+		if(n != null){
+			System.out.println(bst5.search(s).data);
+		}else{
+			System.out.println(" Not Found ");
+		}
+		
+		
 		
 		
 		long end2 = Calendar.getInstance().getTimeInMillis();
@@ -142,7 +150,7 @@ public class FuntionCustomerJson {
 		
 		Scanner scanner = new Scanner(System.in);
 		String a = "";
-		System.out.println("Nhap vao chuoi: ");
+		System.out.println("Input the String: ");
 		a = scanner.nextLine();
 		
 		return a;
